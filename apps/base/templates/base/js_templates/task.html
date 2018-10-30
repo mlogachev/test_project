@@ -1,2 +1,30 @@
 <script type="text/template" id="task-tpl">
+
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-9">
+                <h3 class="panel-title">Заказ #<%- id %> </h3>
+            </div>
+            <div class="col-xs-3">
+                <p class="panel-title">Статус: <%= App.taskStatuses[status] %>  </p>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-9">
+                <p><%- text %></p>
+                <p><a href="<%- link %>"> Ссылка на задание </a></p>
+            </div>
+            <div class="col-xs-3">
+                <p>Стоимость: <%- price %></p>
+                <% if (status === 20) { %>
+                    <button class="btn btn-success action-button"> Выполнить </button>
+                <% } else if (status === 1) { %>
+                    <button class="btn btn-primary action-button"> Принять </button>
+                <%} %>
+            </div>
+        </div>
+    </div>
+
 </script>
