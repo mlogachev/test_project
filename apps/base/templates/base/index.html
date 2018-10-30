@@ -4,7 +4,6 @@
 
 {% block content %}
     <div id="tasks-view">
-
     </div>
 {% endblock %}
 
@@ -13,6 +12,7 @@
 
 
     {% include 'base/js_templates/task.html' %}
+    {% include 'base/js_templates/task_tabs.html' %}
 
     {% javascript 'tasks' %}
 
@@ -23,10 +23,11 @@
                 var view = new App.views.TasksListView({
                     el: '#tasks-view',
                     urls: {
-                        getTasks: '{% url 'get_tasks' %}'
-                    }
+                        getTasks: '{% url 'get_tasks' %}',
+                        getTasksStatuses: '{% url 'get_tasks_statuses' %}',
+                        updateRoute: '{% url 'update_task' %}',
+                    },
                 });
-
             });
         }())
     </script>
